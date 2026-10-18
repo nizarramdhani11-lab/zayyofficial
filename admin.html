@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin — MONO FINDS</title><link rel="stylesheet" href="style.css"></head>
+<body><header class="top"><a class="logo" href="./"><span class="logomark" id="logomark" aria-hidden="true"></span><span class="logotext"><span data-setting="brand_primary">MONO</span> <span class="accent" data-setting="brand_accent">FINDS</span></span></a><span class="topnote">ADMIN DASHBOARD</span></header>
+<main class="wrap adminwrap"><p class="eyebrow">PANEL PENGELOLAAN</p><h1 class="admintitle">Dashboard admin.</h1><p class="lead">Kelola koleksi, produk, dan tulisan website tanpa mengedit kode.</p>
+<div id="configNotice" class="notice hidden">Konfigurasi Supabase belum diisi. Ikuti README.md sebelum login.</div>
+<section id="loginPanel" class="panel"><h2>Masuk admin</h2><form id="loginForm" class="formstack"><label>Email admin<input id="email" type="email" required autocomplete="username"></label><label>Password<input id="password" type="password" required autocomplete="current-password"></label><button>Masuk</button></form><p id="loginMsg" class="msg"></p></section>
+<section id="dashboard" class="hidden">
+<div class="adminbar"><div><strong id="whoami"></strong><p class="muted small">Kamu masuk ke panel admin.</p></div><button id="logout" class="secondary">Keluar</button></div>
+
+<div class="panel"><h2>Teks website</h2><p class="muted small">Ubah tulisan di halaman publik tanpa mengedit kode. Kosongkan URL logo untuk memakai logo bawaan. Baris baru pada judul akan menjadi baris baru di website.</p><form id="settingsForm" class="formgrid">
+<label>Nama brand (tebal)<input data-key="brand_primary" placeholder="MONO"></label>
+<label>Nama brand (aksen)<input data-key="brand_accent" placeholder="FINDS"></label>
+<label class="wide">URL logo<input data-key="logo_url" type="url" placeholder="https://... (kosongkan untuk logo bawaan)"></label>
+<label>Catatan header<input data-key="topnote" placeholder="CURATED EVERYDAY FINDS"></label>
+<label>Label koleksi<input data-key="collection_eyebrow" placeholder="KOLEKSI PILIHAN"></label>
+<label>Judul hero kecil<input data-key="hero_eyebrow" placeholder="A LITTLE LESS NOISE, BETTER FINDS."></label>
+<label>Judul koleksi default<input data-key="collection_title" placeholder="Semua produk"></label>
+<label class="wide">Judul hero<textarea data-key="hero_title" rows="2" placeholder="Temukan pilihanmu.&#10;Tanpa ribet."></textarea></label>
+<label class="wide">Deskripsi hero<textarea data-key="hero_lead" rows="2"></textarea></label>
+<label>Placeholder pencarian<input data-key="search_placeholder"></label>
+<label>Teks tombol cari<input data-key="search_button"></label>
+<label class="wide">Petunjuk pencarian<input data-key="search_hint"></label>
+<label>Footer kiri<input data-key="footer_left"></label>
+<label>Footer kanan<input data-key="footer_right"></label>
+<div class="formactions"><button>Simpan teks</button><button type="button" id="resetSettings" class="secondary">Muat ulang</button></div></form><p id="settingsMsg" class="msg"></p></div>
+
+<div class="panel"><h2>Koleksi</h2><form id="collectionForm" class="formgrid"><input id="collectionId" type="hidden"><label>Nama koleksi<input id="collectionName" required placeholder="Boys Style"></label><label>Kode koleksi<input id="collectionCode" required placeholder="BOYSTYLE01"></label><label>Deskripsi<input id="collectionDescription" placeholder="Pilihan gaya pria"></label><div class="formactions"><button>Simpan koleksi</button><button type="button" id="resetCollection" class="secondary">Bersihkan</button></div></form><div id="collectionsList" class="tablelist"></div></div>
+
+<div class="panel"><h2 id="productFormTitle">Tambah produk</h2><form id="productForm" class="formgrid"><input id="productId" type="hidden"><label>Nama produk<input id="productName" required placeholder="Nama produk"></label><label>Kode koleksi<select id="productCollection" required></select></label><label>Harga (Rupiah)<input id="productPrice" type="number" min="0" step="1" required placeholder="115000"></label><label>Kategori<input id="productCategory" placeholder="Fashion pria"></label><label>Warna / variasi<input id="productVariants" placeholder="Black, Brown, Ivory, Green"></label><label>Status tampil<select id="productActive"><option value="true">Aktif (tampil di website)</option><option value="false">Disembunyikan</option></select></label><label>URL foto produk<input id="productImage" type="url" placeholder="https://..."></label><label class="wide">Link affiliate langsung<input id="productAffiliate" type="url" placeholder="https://vt.tokopedia.com/..."></label><label class="wide">Catatan singkat<input id="productDescription" placeholder="Opsional"></label><div class="formactions"><button>Simpan produk</button><button type="button" id="resetProduct" class="secondary">Bersihkan</button></div></form><p id="adminMsg" class="msg"></p><div id="productsList" class="tablelist"></div></div>
+</section></main><footer><span>MONO FINDS ADMIN</span><span>PRIVATE MANAGEMENT AREA</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script></body></html>

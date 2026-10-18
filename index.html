@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MONO FINDS — Curated everyday finds</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header class="top"><a class="logo" href="./"><span class="logomark" id="logomark" aria-hidden="true"></span><span class="logotext"><span data-setting="brand_primary">MONO</span> <span class="accent" data-setting="brand_accent">FINDS</span></span></a><span class="topnote" data-setting="topnote">CURATED EVERYDAY FINDS</span></header>
+<main class="wrap">
+<section class="hero"><p class="eyebrow" data-setting="hero_eyebrow">A LITTLE LESS NOISE, BETTER FINDS.</p><h1 data-setting="hero_title">Temukan pilihanmu.<br>Tanpa ribet.</h1><p class="lead" data-setting="hero_lead">Koleksi pilihan untuk gaya sehari-hari. Masukkan kode koleksi untuk menemukan produk yang kamu cari.</p>
+<form id="searchForm" class="search"><input id="codeInput" placeholder="Masukkan kode koleksi, mis. BOYSTYLE01" aria-label="Kode koleksi" data-setting-placeholder="search_placeholder"><button data-setting="search_button">Cari kode</button></form><p class="hint" data-setting="search_hint">Coba: BOYSTYLE01 atau BOYSTYLE02</p></section>
+<section><div class="sectionhead"><div><p class="eyebrow" data-setting="collection_eyebrow">KOLEKSI PILIHAN</p><h2 id="collectionTitle">Semua produk</h2></div><span id="count" class="count"></span></div><div id="status" class="status">Memuat katalog…</div><div id="products" class="grid"></div></section>
+</main><footer><span><span data-setting="footer_left">MONO FINDS</span> © <span id="year"></span></span><span data-setting="footer_right">SIMPLE FINDS. EVERYDAY STYLE.</span></footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="app.js"></script>
+</body></html>

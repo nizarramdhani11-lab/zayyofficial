@@ -1,0 +1,15 @@
+MONO FINDS - PETUNJUK SINGKAT
+
+1. Buka file ZIP ini lalu pilih Ekstrak / Extract.
+2. Buka folder mono_finds_final.
+3. File website utama: index.html
+4. Dashboard admin: admin.html
+5. Setup database Supabase (instalasi baru): SETUP_SUPABASE.sql
+6. Migrasi database yang sudah jalan: MIGRASI_UPDATE.sql
+7. Panduan lengkap: README.md
+
+PENTING:
+- Website belum online dan masih perlu konfigurasi Supabase.
+- Jangan masukkan password atau secret key ke file website.
+- Setelah SQL dijalankan, akun admin harus didaftarkan secara terpisah.
+- Yang bisa diubah dari admin: teks website, koleksi, produk, dan status tampil produk.

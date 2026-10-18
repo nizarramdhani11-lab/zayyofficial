@@ -2,6 +2,33 @@
 -- Jalankan SEKALI di Supabase Dashboard > SQL Editor.
 -- Aman dijalankan berulang: tidak menghapus data yang sudah ada.
 
+-- Pastikan schema private dan helper admin ada (jika SETUP belum dijalankan)
+create schema if not exists private;
+
+-- Pastikan tabel admin ada (dibutuhkan oleh function is_mono_admin)
+create table if not exists public.mono_admin_users (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+alter table public.mono_admin_users enable row level security;
+
+create or replace function private.is_mono_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select exists (
+    select 1 from public.mono_admin_users
+    where user_id = (select auth.uid())
+  );
+$$;
+revoke all on function private.is_mono_admin() from public;
+revoke all on function private.is_mono_admin() from anon;
+grant usage on schema private to authenticated;
+grant execute on function private.is_mono_admin() to authenticated;
+
 -- 1) Tabel pengaturan teks website (key-value).
 create table if not exists public.site_settings (
   key text primary key,
